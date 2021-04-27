@@ -1,3 +1,1 @@
-$('body').css ({
-    backgroundColor:'blue'
-})
+console.log("All Finished!")
