@@ -22,7 +22,8 @@ const fetchJobs = async (requestBody) => {
     renderResults(results);
   });
 
-const Quote = require('inspirational-quotes');
+
+
 
 async function fetchQuote() {
   const response = await fetch('/cowspiration');
