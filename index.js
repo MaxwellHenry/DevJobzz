@@ -3,7 +3,7 @@ require('dotenv').config(); // this will read the .env file, if it exists
 
 const { PORT = 3000, WEATHER_KEY } = process.env;
 
-const WEATHER_KEY = "2c59ba50618bc82c4a8d626cde56abb5";
+// const WEATHER_KEY = "2c59ba50618bc82c4a8d626cde56abb5";
 
 console.log("Hello, world!");
 
@@ -15,6 +15,8 @@ const morgan = require('morgan');
 server.use(morgan('dev'));
 
 server.use(express.static('public'));
+
+const axios = require('axios');
 
 const bodyParser = require('body-parser');
 server.use(bodyParser.json());
@@ -36,7 +38,6 @@ server.get('/cowspiration', (req, res) => {
   res.send({ cow });
 });
 
-const axios = require('axios');
 
 server.post('/job-search', async (req, res) => {
   try {
@@ -73,26 +74,26 @@ server.get('/weather', async (req, res) => {
 });
 
 
-server.listen(3000, () => {
+server.listen(PORT, () => {
   console.log('I am listening...');
 });
 
-server.get('/hello', (req, res, next) => {
-    res.send(`
-    <html>
-    <head></head>
-    <body>
-      <h3>Hello!</h3>
-    </body>
-    </html>
-    `)
-});
+// server.get('/hello', (req, res, next) => {
+//     res.send(`
+//     <html>
+//     <head></head>
+//     <body>
+//       <h3>Hello!</h3>
+//     </body>
+//     </html>
+//     `)
+// });
 
-const { PORT = 3000 } = process.env;
+// const { PORT = 3000 } = process.env;
 
-server.listen(PORT, () => {
-  // stuff
-});
+// server.listen(PORT, () => {
+//   // stuff
+// });
 
 
 
